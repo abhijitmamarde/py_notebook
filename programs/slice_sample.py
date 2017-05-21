@@ -13,7 +13,7 @@ print(t1[1])
 # slice  [start:end]
 # start, end - index value
 # start - inclusive
-# end - exclusive
+# end - exclusive 
 print(s1[0:2])
 print(l1[0:2])
 print(t1[0:2])
@@ -62,4 +62,9 @@ print(t2)
 # invalid index for start and end would not raise any error
 
 s3 = "this is some string"
+l3 = list(s3)
 print(s3[-100:-50])
+print(l3[-100:-50])
+print(l3[-2:-1])
+
+print(l1[-9:-6])
