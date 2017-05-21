@@ -1,0 +1,7 @@
+# f = open("sample_read_file.txt")
+# f = open("./pack1/sample_read_file.txt")
+f = open("/Users/abhijitmamarde/pwork/py_notebook/programs/pack1/sample_read_file.txt")
+print(type(f))
+data = f.read()
+print(type(data))
+print(data)
