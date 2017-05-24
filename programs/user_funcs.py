@@ -21,7 +21,7 @@ def hello1():
 
 # calling function
 hello1()
-hello1()
+hello1
 
 
 # def and calling func with arguments
@@ -32,9 +32,18 @@ def add(n1, n2):
         return
 
     sum = n1 + n2
-    print("sum of two nums are: %d" % (sum))
+    # print("sum of two nums are: %d" % (sum))
     return sum
 
+add(19, 15)  # return value is ignored, not stored, not printed
+s1 = add(9, 5)    # s1 = 14
+s2 = add(3, 4)    # s2 = 7
+print(add(s1, s2)) # add(14, 7) = print(21) => 21
+print("-"*10)
+print(add(9, 5) + add(3, 4))
+print("-"*10)
+print(add(add(9, 5), add(3, 4)))
+print("-"*10)
 print("outside func ret val: add(1,2)=%d and add(4,5)=%d" % (add(1,2), add(4,5)))
 print("outside func ret val: add(1,2)=" + str(add(1,2)) + " and add(4,5)=" + str(add(4,5)))
 
@@ -70,10 +79,18 @@ def avg_list(l1):
         l2.append(i*i)
     return (sum/len(l1), l2)
 
+print("="*40)
 l2 = [1,2,3,4,5]
 avg, sq_list = avg_list(l2)
 print("Avg of list: %s is: %f" % (sq_list, avg))
 
+print("="*40)
+
+l2 = (1,2,3,4,5)
+avg, sq_list = avg_list(l2)
+print("Avg of list: %s is: %f" % (sq_list, avg))
+
+print("="*40)
 
 def swap(a, b):
     return (b,a)
@@ -86,30 +103,34 @@ a, b = (b, a)
 print(a, b)
 
 
-def swap2(a, b):
-    print("Inside swap2", id(a), id(b))
-    # temp = a
-    # a = b
-    # b = temp
-    a +=1
-    b +=1
-    print("Inside swap2, after", id(a), id(b))
-    print("Inside swap2, a,b is: ", a, b)
-    return (a,b)
+def swap2(x, y):
+    print("Inside swap2", id(x), id(y))
+    # temp = x
+    # x = y
+    # y = temp
+    x +=1
+    y +=1
+    print("Inside swap2, after", id(x), id(y))
+    print("Inside swap2, x,y is: ", x, y)
+    return (x,y)
 
 
-a = 10
-b = 20
+a = 100
+b = 200
 print("before/outside id:", id(a), id(b))
 print(swap2(a, b))
+a, b = swap2(a, b)
 print("after/outside id:", id(a), id(b))
 print(a, b)
 
 
 def inc_list(l1, n):
+    print("Inside func id of l1:", id(l1))
 
-    for i in l1:
-        print(i)
+    # enumerate usage
+    for i, num in enumerate(l1):
+        print("Value of l1[%d]=%d" % (i, num))
+        print("Value of l1[%d]=%d" % (i, l1[i]))
 
     # enumerate would give index pos along with value
     # index pos would always start from 0 to len(obj)-1
@@ -117,12 +138,15 @@ def inc_list(l1, n):
         l1[i] = num + n
 
     print("inside func:", l1)
+    print("Inside func id of l1 after modify:", id(l1))
     return l1
 
 l2 = [1,2,3,4,5]
+print("Outside id of l2:", id(l2))
 print(inc_list(l2, 3))
+print("Outside id of l2 after func call:", id(l2))
 print(l2)
-
+print("-----")
 
 def sum_list(l1):
     sum = 0
@@ -130,11 +154,14 @@ def sum_list(l1):
         sum += i
     return sum
 
+print("-+"*20)
 l1 = [1,2,3,4,5]
-# print(sum_list(l1))
+print(sum_list(l1))
 
 # speed optimatizaion technique
 print(sum_list(tuple(l1)))
+
+# TODO:: code to show the speed optimization
 
 
 # 0 1 1 2 3 5 8 13 21 ...
