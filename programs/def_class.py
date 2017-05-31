@@ -13,12 +13,27 @@ print(type(MyDerivedClass))
 # create instance / object
 c1 = MyClass()
 c2 = MyDerivedClass()
- 
+
 print("Instance c1 type:", type(c1))
 print("Instance c2 type:", type(c2))
 
+# once a blueprint (class) is created, we can
+# create multiple buildings (object/instance) out of it
+# id for every object/instances are different
+c11 = MyClass()
+c12 = MyClass()
+c13 = MyClass()
+c14 = MyClass()
+c15 = MyClass()
 
 
+print("id(c11)=", id(c11))
+print("id(c12)=", id(c12))
+print("id(c13)=", id(c13))
+print("id(c14)=", id(c14))
+print("id(c15)=", id(c15))
+
+print("-"*10)
 
 class Point:
 
@@ -58,46 +73,46 @@ p2.print()
 
 
 
-class Point3d(Point):
+# class Point3d(Point):
 
-    def __init__(self, x=1, y=2, z=3):
-        Point.__init__(self, x, y)
-        self.z = z
+#     def __init__(self, x=1, y=2, z=3):
+#         Point.__init__(self, x, y)
+#         self.z = z
 
-    def print(self):
-        print("Point 3d: x=%d, y=%d, z=%d, quadrant=%d" % (self.x, self.y, self.z, self.quadrant))
-
-
-p3d1 = Point3d(-4, -5, 1)
-p3d1.print()
-
-p3d2 = Point3d()
-p3d2.print()
+#     def print(self):
+#         print("Point 3d: x=%d, y=%d, z=%d, quadrant=%d" % (self.x, self.y, self.z, self.quadrant))
 
 
+# p3d1 = Point3d(-4, -5, 1)
+# p3d1.print()
+
+# p3d2 = Point3d()
+# p3d2.print()
 
 
-class A:
-    def __init__(self):
-        self.i = 10
-        self.data = 20
-
-class B:
-    def __init__(self):
-        self.j = 20
-        self.data = 40
 
 
-class C(B, A):
-    def __init__(self):
-        A.__init__(self)
-        B.__init__(self)
+# class A:
+#     def __init__(self):
+#         self.i = 10
+#         self.data = 20
 
-    def print(self):
-        print(self.i, self.j, self.data)
+# class B:
+#     def __init__(self):
+#         self.j = 20
+#         self.data = 40
 
 
-c = C()
-c.print()
+# class C(B, A):
+#     def __init__(self):
+#         A.__init__(self)
+#         B.__init__(self)
 
-print(c.__mro__)
+#     def print(self):
+#         print(self.i, self.j, self.data)
+
+
+# c = C()
+# c.print()
+
+# print(c.__mro__)
