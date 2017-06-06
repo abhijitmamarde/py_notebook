@@ -15,19 +15,11 @@ class Point:
             else:
                 self.quadrant = 1
 
-    def __lt__(self, p2):
-
-        return self.quadrant < p2.quadrant
-
-    # TODO:: check error
-    # def __lt__(self, quad):
-
-    #     return self.quadrant < quad
-
-
-
-
-
+    def __lt__(self, arg1):
+        if isinstance(arg1, Point):
+            return self.quadrant < arg1.quadrant
+        elif isinstance(arg1, int):
+            return self.quadrant < arg1
 
 
 p1 = Point(10, 2)
@@ -37,6 +29,6 @@ print(p1 < p2)
 print(p2 < p1)
 
 
-# print(p1 < 2)
-# print(p2 < 4)
+print(p1 < 2)
+print(p2 < 4)
 
