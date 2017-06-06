@@ -12,10 +12,10 @@ class MyThreadCount(threading.Thread):
             print("Thread: %s i: %d" % (self.name, i))
             time.sleep(1)
 
-myCount10 = MyThreadCount("Thread1", 10)
-myCount30 = MyThreadCount("Thread2", 30)
-myCount50 = MyThreadCount("Thread3", 50)
+myCount1 = MyThreadCount("Thread1", 1)
+myCount2 = MyThreadCount("Thread2", 3)
+myCount3 = MyThreadCount("Thread3", 5)
 
-myCount10.start()
-myCount30.start()
-myCount50.start()
+myCount1.start()
+myCount2.start()
+myCount3.start()
