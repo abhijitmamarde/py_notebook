@@ -11,11 +11,11 @@ if input list is:
 ]
 
 then output should be:
-
-1, 2, 3 sum = 5
-4, 5, 6 sum = 15
-7, 8, 9 sum = 24
-Col sum=12, 15, 18
+[
+[1,   2,  3,  5],
+[4,   5,  6, 15],
+[7,   8,  9, 24],
+[12, 15, 18, -1]
 ]
 '''
 
@@ -25,17 +25,28 @@ l1 = [
     [7, 8, 9],
 ]
 
-csum = [0] * len(l1)
-print(csum)
-for i in l1:
+# csum = [0] * len(l1)
+# print(csum)
+# for i in l1:
+#     rsum = 0
+#     for index, j in enumerate(i):
+#         print(j, end=",")
+#         csum[index] += j
+#         rsum += j
+#     print("sum =", rsum)
+
+# print(l1)
+# print(csum)
+
+resl = l1.copy()
+resl.append([0]*3)
+
+for ind1, i in enumerate(l1):
     rsum = 0
-    for index, j in enumerate(i):
-        print(j, end=",")
-        csum[index] += j
+    for ind2, j in enumerate(i):
+        resl[3][ind2] += j
         rsum += j
-    print("sum =", rsum)
+    resl[ind1].append(rsum)
 
-print(l1)
-print(csum)
-
-
+resl[3].append(-1)
+print(resl)
