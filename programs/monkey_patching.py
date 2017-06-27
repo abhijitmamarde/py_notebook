@@ -8,19 +8,19 @@ print("Before patch len(s1):", len(s1))
 
 def mylen(obj):
     print("mylen called!")
-    return orig_len(obj) + 1
+    return builtins.orig_len(obj) + 1
 
 # len = mylen
 
-def patch_len(new_func):
+def patch_len():
     builtins.orig_len = builtins.len
-    builtins.len = new_func
+    builtins.len = mylen
 
 def unpatch_len():
     builtins.len = builtins.orig_len
     del builtins.orig_len
 
-patch_len(mylen)
+patch_len()
 
 print("After  patch len(s1):", len(s1))
 
